@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 12:52:31 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/17 18:03:18 by acoromin         ###   ########.fr       */
+/*   Updated: 2026/05/19 17:51:19 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ typedef struct s_format
 	char	type;
 }	t_format;
 
-int	ft_printf(char const *str, ...);
-int	ft_putchar_pf(int c);
-int	ft_putstr_pf(char *str);
-int	ft_putnbr_pf(int nb);
-int	ft_putunbr_pf(unsigned int nb);
-int	ft_puthex_pf(unsigned int nb, char c);
-int	ft_putptr_pf(void *ptr);
+int		ft_printf(char const *str, ...);
+int		ft_putchar_pf(int c);
+int		ft_putstr_pf(char *str);
+int		ft_putnbr_pf(int nb);
+int		ft_putunbr_pf(unsigned int nb);
+int		ft_puthex_pf(unsigned int nb, char c);
+int		ft_putptr_pf(void *ptr);
+void	ft_init_format(t_format *fmt);
+void	ft_parse_format(char const *str, int *i, t_format *fmt);
 
 #endif
