@@ -6,7 +6,7 @@
 #    By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/03 13:13:49 by acoromin          #+#    #+#              #
-#    Updated: 2026/05/19 18:09:11 by acoromin         ###   ########.fr        #
+#    Updated: 2026/05/20 13:27:58 by acoromin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 COMMON_SRCS = ft_putchar_pf.c ft_putnbr_pf.c ft_puthex_pf.c
 SRCS = ft_printf.c $(COMMON_SRCS)
-BONUS_SRCS = ft_printf_bonus.c ft_parse_format_bonus.c $(COMMON_SRCS)
+BONUS_SRCS = ft_printf_bonus.c ft_parse_format_bonus.c ft_print_flags_bonus.c \
+			$(COMMON_SRCS)
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)

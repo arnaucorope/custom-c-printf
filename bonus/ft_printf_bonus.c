@@ -6,7 +6,7 @@
 /*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 16:28:07 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/17 18:51:44 by acoromin         ###   ########.fr       */
+/*   Updated: 2026/05/20 13:31:05 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_select_type(va_list args, t_format *fmt)
 	else if (fmt->type == '%')
 		count += ft_putchar_pf('%');
 	else if (fmt->type == 'i' || fmt->type == 'd')
-		count += ft_putnbr_pf(va_arg(args, int));
+		count += ft_print_int_bonus(va_arg(args, int), fmt);
 	else if (fmt->type == 'u')
 		count += ft_putunbr_pf(va_arg(args, unsigned int));
 	else if (fmt->type == 'x' || fmt->type == 'X')

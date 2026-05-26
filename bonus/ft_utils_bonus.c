@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_pf.c                                    :+:      :+:    :+:   */
+/*   ft_utils_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: acoromin <acoromin@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 12:56:31 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/17 18:14:46 by acoromin         ###   ########.fr       */
+/*   Created: 2026/05/20 14:11:25 by acoromin          #+#    #+#             */
+/*   Updated: 2026/05/20 14:11:49 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_pf(int c)
+int ft_print_padding(int size, char c)
 {
-	char	ch;
+    int count;
 
-	ch = (char)c;
-	write(1, &ch, 1);
-	return (1);
+    count = 0;
+    while (count < size)
+        count += ft_putchar_pf(c);
+    return (count);
 }
 
-int	ft_putstr_pf(char *str)
-{
-	int	i;
-
-	if (!str)
-		return (ft_putstr_pf("(null)"));
-	i = 0;
-	while (str[i])
-		i++;
-	write(1, str, i);
-	return (i);
-}

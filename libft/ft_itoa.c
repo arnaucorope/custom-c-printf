@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static size_t	ft_nlen(long n)
+size_t	ft_nlen(long n)
 {
 	if (n < 0)
 		return (1 + ft_nlen(-n));
