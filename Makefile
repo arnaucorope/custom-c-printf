@@ -6,7 +6,7 @@
 #    By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/03 13:13:49 by acoromin          #+#    #+#              #
-#    Updated: 2026/05/27 16:36:46 by acoromin         ###   ########.fr        #
+#    Updated: 2026/05/27 18:01:35 by acoromin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = ft_printf_bonus.c \
 	ft_utils_bonus.c \
 	ft_putchar_pf.c \
 	ft_putnbr_pf.c \
-	ft_puthex_pf.c
+	ft_puthex_pf.c ft_print_uint_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 
