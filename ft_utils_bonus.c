@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_utils_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: acoromin <acoromin@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/20 11:46:51 by acoromin          #+#    #+#             */
-/*   Updated: 2026/04/22 10:55:51 by acoromin         ###   ########.fr       */
+/*   Created: 2026/05/20 14:11:25 by acoromin          #+#    #+#             */
+/*   Updated: 2026/05/27 16:55:25 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static int	ft_isspace(char c)
+int	ft_print_padding(int size, char c)
 {
-	return ((c >= '\t' && c <= '\r') || c == ' ');
+	int	count;
+
+	count = 0;
+	while (count < size)
+		count += ft_putchar_pf(c);
+	return (count);
+}
+
+int	ft_isdigit(int c)
+{
+	return (c >= 48 && c <= 57);
 }
 
 int	ft_atoi(const char *nptr)
@@ -24,7 +34,7 @@ int	ft_atoi(const char *nptr)
 	int	i;
 
 	i = 0;
-	while (ft_isspace(nptr[i]))
+	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ') 
 		i++;
 	sign = 1;
 	if (nptr[i] == '+' || nptr[i] == '-')

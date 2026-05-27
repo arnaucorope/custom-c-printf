@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int_bonus.c                               :+:      :+:    :+:   */
+/*   ft_int_utils_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoromin <acoromin@student.42barcelon      +#+  +:+       +#+        */
+/*   By: acoromin@student.42barcelona.com           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 12:22:42 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/22 18:25:02 by acoromin         ###   ########.fr       */
+/*   Created: 2026/05/27 11:34:48 by acoromin          #+#    #+#             */
+/*   Updated: 2026/05/27 17:23:40 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,13 @@ int	get_int_len(int nb, t_format *fmt)
 	return (count);
 }
 
-int	ft_print_int_bonus(int nb, t_format *fmt)
+int	get_int_sign(int nb, t_format *fmt)
 {
-	int		len;
-	int		prec_zeros;
-	int		padding;
-	int		count;
-	char	pad;
-
-	count = 0;
-	len = get_int_len(nb, fmt);
-	prec_zeros = get_int_precision(len, fmt);
-	padding = get_int_width(len + prec_zeros, fmt);
-	pad = get_char_pad(fmt);
-	if (!fmt->minus)
-		count += ft_print_padding(padding, pad);
-	count += ft_print_padding(prec_zeros, '0');
-	count += ft_putnbr_pf(nb);
-	if (fmt->minus)
-		count += ft_print_padding(padding, ' ');
-	return (count);
+	if (nb < 0)
+		return (1);
+	if (fmt->plus)
+		return (1);
+	if (fmt->space)
+		return (1);
+	return (0);
 }

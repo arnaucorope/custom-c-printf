@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_pf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/20 14:34:38 by acoromin          #+#    #+#             */
-/*   Updated: 2026/04/22 10:23:18 by acoromin         ###   ########.fr       */
+/*   Created: 2026/04/30 12:56:31 by acoromin          #+#    #+#             */
+/*   Updated: 2026/05/17 18:14:46 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_putchar_pf(int c)
 {
-	size_t	i;
-	char	*str;
-	size_t	slen;
-	size_t	tlen;
+	char	ch;
 
-	if (!s)
-		return (NULL);
-	slen = ft_strlen(s);
-	if (start >= slen)
-		return (ft_strdup(""));
-	if (len > slen - start)
-		tlen = slen - start;
-	else
-		tlen = len;
-	str = malloc(tlen + 1);
+	ch = (char)c;
+	write(1, &ch, 1);
+	return (1);
+}
+
+int	ft_putstr_pf(char *str)
+{
+	int	i;
+
 	if (!str)
-		return (NULL);
+		return (ft_putstr_pf("(null)"));
 	i = 0;
-	while (i < tlen)
-	{
-		str[i] = s[start + i];
+	while (str[i])
 		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	write(1, str, i);
+	return (i);
 }
