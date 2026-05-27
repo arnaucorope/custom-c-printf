@@ -6,7 +6,7 @@
 /*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 12:52:31 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/27 17:59:48 by acoromin         ###   ########.fr       */
+/*   Updated: 2026/05/27 19:11:09 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int		get_int_sign(int nb, t_format *fmt);
 int		ft_atoi(const char *nptr);
 int		ft_isdigit(int c);
 int		ft_print_uint_bonus(unsigned int nb, t_format *fmt);
+int		ft_print_hex_bonus(unsigned int nb, t_format *fmt, char c);
 
 #endif

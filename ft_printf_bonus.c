@@ -6,7 +6,7 @@
 /*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 16:28:07 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/27 18:02:11 by acoromin         ###   ########.fr       */
+/*   Updated: 2026/05/27 19:09:03 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_select_type(va_list args, t_format *fmt)
 	else if (fmt->type == 'u')
 		count += ft_print_uint_bonus(va_arg(args, unsigned int), fmt);
 	else if (fmt->type == 'x' || fmt->type == 'X')
-		count += ft_puthex_pf(va_arg(args, unsigned int), fmt->type);
+		count += ft_print_hex_bonus(va_arg(args, unsigned int), fmt, fmt->type);
 	else if (fmt->type == 'p')
 		count += ft_putptr_pf(va_arg(args, void *));
 	else
