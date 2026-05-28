@@ -1,50 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 16:28:07 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/27 19:09:03 by acoromin         ###   ########.fr       */
+/*   Updated: 2026/05/17 16:50:20 by acoro            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_select_type(va_list args, t_format *fmt)
+static int	ft_select_format(va_list args, char const c)
 {
 	int	count;
 
 	count = 0;
-	if (fmt->type == 'c')
+	if (c == 'c')
 		count += ft_putchar_pf(va_arg(args, int));
-	else if (fmt->type == 's')
+	else if (c == 's')
 		count += ft_putstr_pf(va_arg(args, char *));
-	else if (fmt->type == '%')
+	else if (c == '%')
 		count += ft_putchar_pf('%');
-	else if (fmt->type == 'i' || fmt->type == 'd')
-		count += ft_print_int_bonus(va_arg(args, int), fmt);
-	else if (fmt->type == 'u')
-		count += ft_print_uint_bonus(va_arg(args, unsigned int), fmt);
-	else if (fmt->type == 'x' || fmt->type == 'X')
-		count += ft_print_hex_bonus(va_arg(args, unsigned int), fmt, fmt->type);
-	else if (fmt->type == 'p')
+	else if (c == 'i' || c == 'd')
+		count += ft_putnbr_pf(va_arg(args, int));
+	else if (c == 'u')
+		count += ft_putunbr_pf(va_arg(args, unsigned int));
+	else if (c == 'x' || c == 'X')
+		count += ft_puthex_pf(va_arg(args, unsigned int), c);
+	else if (c == 'p')
 		count += ft_putptr_pf(va_arg(args, void *));
 	else
 	{
 		count += ft_putchar_pf('%');
-		count += ft_putchar_pf(fmt->type);
+		count += ft_putchar_pf(c);
 	}
 	return (count);
 }
 
 int	ft_printf(char const *str, ...)
 {
-	int			i;
-	int			count;
-	va_list		args;
-	t_format	fmt;
+	int		i;
+	int		count;
+	va_list	args;
 
 	if (!str)
 		return (-1);
@@ -55,10 +54,8 @@ int	ft_printf(char const *str, ...)
 	{
 		if (str[i] == '%' && str[i + 1])
 		{
-			ft_init_format(&fmt);
-			ft_parse_format(str, &i, &fmt);
-			count += ft_select_type(args, &fmt);
-			i++;
+			count += ft_select_format(args, str[i + 1]);
+			i += 2;
 		}
 		else
 		{

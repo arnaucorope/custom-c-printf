@@ -6,11 +6,11 @@
 /*   By: acoromin <acoromin@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 14:11:25 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/27 16:55:25 by acoromin         ###   ########.fr       */
+/*   Updated: 2026/05/27 21:44:18 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 int	ft_print_padding(int size, char c)
 {
@@ -34,7 +34,7 @@ int	ft_atoi(const char *nptr)
 	int	i;
 
 	i = 0;
-	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ') 
+	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
 		i++;
 	sign = 1;
 	if (nptr[i] == '+' || nptr[i] == '-')

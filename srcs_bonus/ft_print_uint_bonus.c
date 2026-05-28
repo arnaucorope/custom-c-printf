@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static int	get_unsigned_len(unsigned int nb, t_format *fmt)
 {
@@ -49,7 +49,7 @@ int	ft_print_uint_bonus(unsigned int nb, t_format *fmt)
 	count = 0;
 	len = get_unsigned_len(nb, fmt);
 	prec_zeros = get_int_precision(len, fmt);
-	padding = get_int_width(len + prec_zeros, fmt);
+	padding = get_width_padding(len + prec_zeros, fmt);
 	pad = get_char_pad(fmt);
 	if (!fmt->minus && pad == ' ')
 		count += ft_print_padding(padding, pad);

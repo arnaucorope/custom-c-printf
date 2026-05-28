@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_utils_bonus.c                               :+:      :+:    :+:   */
+/*   ft_print_utils_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoromin@student.42barcelona.com           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 int	get_int_precision(int len, t_format *fmt)
 {
@@ -19,7 +19,7 @@ int	get_int_precision(int len, t_format *fmt)
 	return (0);
 }
 
-int	get_int_width(int tlen, t_format *fmt)
+int	get_width_padding(int tlen, t_format *fmt)
 {
 	if (tlen < fmt->width)
 		return (fmt->width - tlen);

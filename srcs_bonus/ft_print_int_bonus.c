@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static int	ft_putnbr_long(long number)
 {
@@ -55,7 +55,7 @@ int	ft_print_int_bonus(int nb, t_format *fmt)
 	count = 0;
 	len = get_int_len(nb, fmt);
 	prec_zeros = get_int_precision(len, fmt);
-	padding = get_int_width(get_int_sign(nb, fmt) + len + prec_zeros, fmt);
+	padding = get_width_padding(get_int_sign(nb, fmt) + len + prec_zeros, fmt);
 	pad = get_char_pad(fmt);
 	if (!fmt->minus && pad == ' ')
 		count += ft_print_padding(padding, pad);

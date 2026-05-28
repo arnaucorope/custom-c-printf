@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static int	gethex_len(unsigned int nb, t_format *fmt)
 {
@@ -74,7 +74,7 @@ int	ft_print_hex_bonus(unsigned int nb, t_format *fmt, char c)
 	count = 0;
 	len = gethex_len(nb, fmt);
 	prec_zeros = get_int_precision(len, fmt);
-	padding = get_int_width(get_hash(nb, fmt) + len + prec_zeros, fmt);
+	padding = get_width_padding(get_hash(nb, fmt) + len + prec_zeros, fmt);
 	pad = get_char_pad(fmt);
 	if (!fmt->minus && pad == ' ')
 		count += ft_print_padding(padding, pad);

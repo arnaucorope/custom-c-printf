@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoromin <acoromin@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 12:52:31 by acoromin          #+#    #+#             */
-/*   Updated: 2026/05/27 19:11:09 by acoromin         ###   ########.fr       */
+/*   Updated: 2026/05/28 11:28:44 by acoromin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTF_BONUS_H
+# define FT_PRINTF_BONUS_H
 
-# include <unistd.h>
-# include <stdarg.h>
+# include "ft_printf.h"
 
 typedef struct s_format
 {
@@ -29,26 +28,25 @@ typedef struct s_format
 	char	type;
 }	t_format;
 
-int		ft_printf(char const *str, ...);
-int		ft_putchar_pf(int c);
-int		ft_putstr_pf(char *str);
-int		ft_putnbr_pf(int nb);
-int		ft_putunbr_pf(unsigned int nb);
-int		ft_puthex_pf(unsigned int nb, char c);
-int		ft_putptr_pf(void *ptr);
-
 void	ft_init_format(t_format *fmt);
 void	ft_parse_format(char const *str, int *i, t_format *fmt);
-int		ft_print_padding(int size, char c);
-int		ft_print_int_bonus(int nb, t_format *fmt);
-int		get_int_precision(int len, t_format *fmt);
-int		get_int_width(int tlen, t_format *fmt);
-char	get_char_pad(t_format *fmt);
-int		get_int_len(int nb, t_format *fmt);
-int		get_int_sign(int nb, t_format *fmt);
+
 int		ft_atoi(const char *nptr);
 int		ft_isdigit(int c);
+int		ft_print_padding(int size, char c);
+int		get_width_padding(int tlen, t_format *fmt);
+char	get_char_pad(t_format *fmt);
+
+int		ft_print_int_bonus(int nb, t_format *fmt);
+int		get_int_precision(int len, t_format *fmt);
+int		get_int_len(int nb, t_format *fmt);
+int		get_int_sign(int nb, t_format *fmt);
+
 int		ft_print_uint_bonus(unsigned int nb, t_format *fmt);
 int		ft_print_hex_bonus(unsigned int nb, t_format *fmt, char c);
+int		ft_print_char_bonus(int c, t_format *fmt);
+int		ft_print_percent_bonus(t_format *fmt);
+int		ft_print_str_bonus(char *str, t_format *fmt);
+int		ft_print_ptr_bonus(void *ptr, t_format *fmt);
 
 #endif
