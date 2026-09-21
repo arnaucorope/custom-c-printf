@@ -84,7 +84,7 @@ The `make bonus` build parses flags, a numeric field width, and a numeric precis
 | `.` | Minimum integer digits or maximum string length |
 | `#` | Hexadecimal prefix for nonzero values |
 | `+` | Explicit sign for signed integers |
-| Space | Leading space for positive signed integers when `+` is absent |
+| Space | Leading space for non-negative signed integers when `+` is absent |
 
 Options apply according to the conversion. Characters and pointers support width and alignment; strings also support precision. `%%` prints a single percent sign.
 
@@ -113,7 +113,7 @@ Signed integer formatting converts the value to `long` before taking its magnitu
 | `includes/ft_printf.h` | Public function declaration and shared helpers |
 | `includes/ft_printf_bonus.h` | Format state and extended printer declarations |
 | `srcs/ft_printf.c` | Core scanner and conversion dispatch |
-| `srcs/ft_putchar_pf.c`, `ft_putnbr_pf.c`, `ft_puthex_pf.c` | Shared character, string, and numeric output |
+| `srcs/ft_putchar_pf.c`, `srcs/ft_putnbr_pf.c`, `srcs/ft_puthex_pf.c` | Shared character, string, and numeric output |
 | `srcs_bonus/ft_parse_format_bonus.c` | Flags, width, and precision parsing |
 | `srcs_bonus/ft_printf_bonus.c` | Extended scanner and dispatch |
 | `srcs_bonus/ft_print_*.c` | Type-specific formatting and padding |
@@ -130,7 +130,7 @@ Each build includes exactly one implementation of `ft_printf`. The extended buil
 
 ## Project background
 
-Developed by **acoromin** as `ft_printf`, part of the 42 curriculum.
+Developed by **Arnau Corominas Pérez (acoromin)** as `ft_printf`, part of the 42 curriculum.
 
 Reference material included the manual pages for `printf`, `write`, and variadic argument handling, *The C Programming Language* by Kernighan and Ritchie, and C reference documentation.
 
